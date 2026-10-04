@@ -1,0 +1,256 @@
+{
+  "profile": {
+    "rows": 12160,
+    "columns": 19,
+    "duplicate_ids": 160,
+    "missing_cells": 2682,
+    "missing_pct_by_col": {
+      "shipment_id": 0.0,
+      "order_date": 0.0,
+      "origin_warehouse": 0.0,
+      "destination_hub": 0.0,
+      "destination_zone": 0.0,
+      "product_category": 0.0,
+      "shipping_mode": 0.0,
+      "priority": 0.0,
+      "carrier": 2.98,
+      "distance_km": 3.96,
+      "weight_kg": 5.05,
+      "volume_m3": 1.01,
+      "order_value_inr": 0.0,
+      "weather_index": 2.52,
+      "traffic_index": 3.02,
+      "planned_days": 0.0,
+      "actual_days": 0.0,
+      "delivery_cost_inr": 0.0,
+      "customer_rating": 3.52
+    },
+    "negative_cost": 49,
+    "zero_distance": 36,
+    "negative_days": 49,
+    "days_over_30": 74,
+    "mode_label_variants": 9,
+    "carrier_label_variants": 8
+  },
+  "cleaning_log": [
+    {
+      "step": "Duplicates",
+      "issue": "Repeated shipment_id (system retries)",
+      "rows_affected": 160,
+      "action": "Dropped, keeping first occurrence"
+    },
+    {
+      "step": "Categorical labels",
+      "issue": "9 spellings of 3 shipping modes (case/whitespace); carrier and warehouse case drift",
+      "rows_affected": 2553,
+      "action": "strip() + title-case; carrier mapped through a canonical dictionary"
+    },
+    {
+      "step": "Dates",
+      "issue": "Three date layouts (ISO 86%, DD/MM/YYYY, 'Mon DD, YYYY')",
+      "rows_affected": 1632,
+      "action": "Parsed with explicit formats (never guessing day/month order); unparseable -> NaT"
+    },
+    {
+      "step": "Invalid values",
+      "issue": "Negative delivery cost (sign-entry error)",
+      "rows_affected": 48,
+      "action": "Absolute value taken (magnitude plausible)"
+    },
+    {
+      "step": "Invalid values",
+      "issue": "Zero distance between different cities",
+      "rows_affected": 36,
+      "action": "Set to missing, re-derived from lane median"
+    },
+    {
+      "step": "Invalid values",
+      "issue": "actual_days <= 0 or > 30 (target variable)",
+      "rows_affected": 120,
+      "action": "Rows removed - the target cannot be imputed without leaking assumptions"
+    },
+    {
+      "step": "Missing values",
+      "issue": "distance_km missing / invalid",
+      "rows_affected": 509,
+      "action": "Imputed with median of the same origin-destination lane"
+    },
+    {
+      "step": "Outliers",
+      "issue": "Implausible parcel weights (robust z>4 in log space per category, or >200 kg limit)",
+      "rows_affected": 119,
+      "action": "Treated as entry errors -> set to missing and imputed"
+    },
+    {
+      "step": "Outliers",
+      "issue": "Implausible delivery costs (robust z>4 on log cost/km per shipping mode)",
+      "rows_affected": 121,
+      "action": "Treated as billing errors -> set to missing and imputed"
+    },
+    {
+      "step": "Missing values",
+      "issue": "weight_kg missing (incl. removed outliers)",
+      "rows_affected": 716,
+      "action": "Volume x category median density (MAE 2.80 kg vs 2.52 kg for KNN, chosen for transparency and zero tuning); category median as fallback"
+    },
+    {
+      "step": "Missing values",
+      "issue": "volume_m3 missing",
+      "rows_affected": 120,
+      "action": "Weight / category median density"
+    },
+    {
+      "step": "Missing values",
+      "issue": "weather_index missing",
+      "rows_affected": 300,
+      "action": "Median of same calendar month"
+    },
+    {
+      "step": "Missing values",
+      "issue": "traffic_index missing",
+      "rows_affected": 355,
+      "action": "Median of same calendar month"
+    },
+    {
+      "step": "Missing values",
+      "issue": "carrier missing",
+      "rows_affected": 355,
+      "action": "Kept as explicit category 'Unknown' (no honest way to infer it)"
+    },
+    {
+      "step": "Missing values",
+      "issue": "delivery_cost_inr removed as outlier",
+      "rows_affected": 121,
+      "action": "Median cost-per-km of the shipping mode x distance"
+    },
+    {
+      "step": "Missing values",
+      "issue": "customer_rating missing",
+      "rows_affected": 414,
+      "action": "Left missing; excluded only from rating-specific statistics"
+    }
+  ],
+  "outlier_method_counts": {
+    "weight_kg": {
+      "IQR (raw, global)": 1296,
+      "z-score |z|>3 (raw, global)": 57,
+      "Robust z>4 (log, per category)": 118
+    },
+    "delivery_cost_inr": {
+      "IQR (raw, global)": 458,
+      "z-score |z|>3 (raw, global)": 96,
+      "Robust z>4 (log cost/km, per mode)": 121
+    }
+  },
+  "missingness_mechanism": {
+    "chi2_p_value_weight_missing_vs_category": 0.1360734986775865,
+    "reading": "p > 0.05 suggests weight is missing (close to) completely at random w.r.t. product category"
+  },
+  "imputation_benchmark_mae_kg": {
+    "Global mean": 8.855578151892656,
+    "Global median": 7.14575601222506,
+    "Category median": 4.863403071048589,
+    "Volume x category density": 2.7952627012960836,
+    "KNN (k=7, log scale)": 2.5235271107857
+  },
+  "skew_table": {
+    "weight_kg": {
+      "skew_raw": 4.440762135779896,
+      "skew_log1p": 0.7535222872574975
+    },
+    "volume_m3": {
+      "skew_raw": 4.963630803755695,
+      "skew_log1p": 3.7230797608880697
+    },
+    "order_value_inr": {
+      "skew_raw": 2.7995777447884853,
+      "skew_log1p": 0.31581319409327197
+    },
+    "delivery_cost_inr": {
+      "skew_raw": 1.4502081933490252,
+      "skew_log1p": -0.009329000239244288
+    },
+    "distance_km": {
+      "skew_raw": 0.7095808224974127,
+      "skew_log1p": -0.24842781295609379
+    }
+  },
+  "normalisation_table": {
+    "Raw": {
+      "mean": 9.46776515151515,
+      "std": 15.147000896502611,
+      "min": 0.29,
+      "max": 195.11,
+      "skew": 4.440762135779896
+    },
+    "log1p": {
+      "mean": 1.848577823402104,
+      "std": 0.9049193545316359,
+      "min": 0.25464221837358075,
+      "max": 5.278675726292748,
+      "skew": 0.7535222872574975
+    },
+    "Min-max [0,1]": {
+      "mean": 0.04710894749776794,
+      "std": 0.07774869570117345,
+      "min": 0.0,
+      "max": 0.9999999999999999,
+      "skew": 4.440762135779895
+    },
+    "Z-score": {
+      "mean": 5.1436595349636885e-17,
+      "std": 1.0,
+      "min": -0.6059130262304444,
+      "max": 12.256039074464503,
+      "skew": 4.440762135779895
+    },
+    "Robust (median/IQR)": {
+      "mean": 0.6862364981297021,
+      "std": 2.1008323018727615,
+      "min": -0.5866851595006934,
+      "max": 26.434119278779473,
+      "skew": 4.440762135779895
+    },
+    "log1p + Z-score": {
+      "mean": 3.648409670148663e-17,
+      "std": 1.0,
+      "min": -1.7614117733767616,
+      "max": 3.7905012040172124,
+      "skew": 0.7535222872574975
+    }
+  },
+  "scorecard_before": {
+    "rows": 12160,
+    "completeness_pct": 98.84,
+    "duplicate_rows": 160,
+    "invalid_values": 207,
+    "label_variants_shipping_mode": 9
+  },
+  "scorecard_after": {
+    "rows": 11880,
+    "completeness_pct": 99.82,
+    "duplicate_rows": 0,
+    "invalid_values": 0,
+    "label_variants_shipping_mode": 3
+  },
+  "rows_raw": 12160,
+  "rows_clean": 11880,
+  "rows_removed": 280,
+  "date_range": [
+    "2025-01-01",
+    "2025-12-31"
+  ],
+  "cpk_by_mode": {
+    "Economy": 0.434,
+    "Express": 0.908,
+    "Standard": 0.587
+  },
+  "density_by_category": {
+    "Apparel": 151.6,
+    "Books": 152.4,
+    "Electronics": 148.2,
+    "Furniture": 148.3,
+    "Grocery": 150.5,
+    "Pharma": 152.7
+  }
+}

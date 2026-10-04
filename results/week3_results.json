@@ -1,0 +1,420 @@
+{
+  "overall": {
+    "shipments": 11880,
+    "on_time_pct": 70.7,
+    "mean_actual_days": 3.73,
+    "median_actual_days": 3.4,
+    "mean_cost_inr": 704.8,
+    "median_cost_per_km": 0.573,
+    "mean_rating": 4.6,
+    "total_cost_inr": 8373187.0
+  },
+  "describe": [
+    {
+      "variable": "distance_km",
+      "mean": 1174.585,
+      "median": 1142.45,
+      "std": 626.761,
+      "min": 270.4,
+      "max": 3007.4,
+      "skew": 0.71,
+      "IQR": 944.85
+    },
+    {
+      "variable": "weight_kg",
+      "mean": 9.468,
+      "median": 4.52,
+      "std": 15.148,
+      "min": 0.29,
+      "max": 195.11,
+      "skew": 4.441,
+      "IQR": 7.21
+    },
+    {
+      "variable": "order_value_inr",
+      "mean": 9723.24,
+      "median": 3345.5,
+      "std": 13756.648,
+      "min": 168.0,
+      "max": 180388.0,
+      "skew": 2.8,
+      "IQR": 11601.75
+    },
+    {
+      "variable": "weather_index",
+      "mean": 0.329,
+      "median": 0.308,
+      "std": 0.174,
+      "min": 0.007,
+      "max": 1.0,
+      "skew": 0.554,
+      "IQR": 0.242
+    },
+    {
+      "variable": "traffic_index",
+      "mean": 0.417,
+      "median": 0.402,
+      "std": 0.19,
+      "min": 0.007,
+      "max": 1.0,
+      "skew": 0.324,
+      "IQR": 0.272
+    },
+    {
+      "variable": "planned_days",
+      "mean": 3.884,
+      "median": 4.0,
+      "std": 1.618,
+      "min": 2.0,
+      "max": 10.0,
+      "skew": 0.989,
+      "IQR": 2.0
+    },
+    {
+      "variable": "actual_days",
+      "mean": 3.725,
+      "median": 3.4,
+      "std": 1.729,
+      "min": 0.7,
+      "max": 13.4,
+      "skew": 1.119,
+      "IQR": 2.2
+    },
+    {
+      "variable": "delay_days",
+      "mean": 0.17,
+      "median": 0.0,
+      "std": 0.415,
+      "min": 0.0,
+      "max": 5.2,
+      "skew": 4.32,
+      "IQR": 0.1
+    },
+    {
+      "variable": "delivery_cost_inr",
+      "mean": 704.814,
+      "median": 607.75,
+      "std": 432.14,
+      "min": 117.0,
+      "max": 3476.33,
+      "skew": 1.45,
+      "IQR": 536.592
+    },
+    {
+      "variable": "cost_per_km",
+      "mean": 0.614,
+      "median": 0.573,
+      "std": 0.189,
+      "min": 0.279,
+      "max": 1.38,
+      "skew": 0.95,
+      "IQR": 0.225
+    },
+    {
+      "variable": "customer_rating",
+      "mean": 4.598,
+      "median": 5.0,
+      "std": 0.538,
+      "min": 1.0,
+      "max": 5.0,
+      "skew": -0.997,
+      "IQR": 1.0
+    }
+  ],
+  "top_corr_pairs": [
+    {
+      "a": "planned_days",
+      "b": "actual_days",
+      "rho": 0.91
+    },
+    {
+      "a": "distance_km",
+      "b": "delivery_cost_inr",
+      "rho": 0.87
+    },
+    {
+      "a": "distance_km",
+      "b": "planned_days",
+      "rho": 0.87
+    },
+    {
+      "a": "distance_km",
+      "b": "actual_days",
+      "rho": 0.83
+    },
+    {
+      "a": "planned_days",
+      "b": "delivery_cost_inr",
+      "rho": 0.59
+    },
+    {
+      "a": "actual_days",
+      "b": "delivery_cost_inr",
+      "rho": 0.56
+    },
+    {
+      "a": "actual_days",
+      "b": "delay_days",
+      "rho": 0.28
+    },
+    {
+      "a": "delay_days",
+      "b": "customer_rating",
+      "rho": -0.24
+    }
+  ],
+  "delay_corr": {
+    "actual_days": 0.28,
+    "customer_rating": -0.24,
+    "traffic_index": 0.14,
+    "is_peak_season": 0.13,
+    "weather_index": 0.11
+  },
+  "actual_corr": {
+    "planned_days": 0.91,
+    "distance_km": 0.83,
+    "delivery_cost_inr": 0.56,
+    "delay_days": 0.28,
+    "customer_rating": -0.11
+  },
+  "insights": {
+    "peak_season": {
+      "peak_delay_pct": 37.6,
+      "offpeak_delay_pct": 25.2,
+      "z": 14.0,
+      "p_value": 0.0,
+      "volume_uplift_pct": 47.7
+    },
+    "carrier": {
+      "table": {
+        "BlueDart Lite": {
+          "shipments": 3154,
+          "late_pct": 25.1,
+          "median_cost_per_km": 0.642,
+          "mean_days": 3.65,
+          "mean_rating": 4.61
+        },
+        "CityLink": {
+          "shipments": 2134,
+          "late_pct": 29.6,
+          "median_cost_per_km": 0.537,
+          "mean_days": 3.8,
+          "mean_rating": 4.6
+        },
+        "RoadRunner": {
+          "shipments": 2534,
+          "late_pct": 35.5,
+          "median_cost_per_km": 0.51,
+          "mean_days": 3.76,
+          "mean_rating": 4.57
+        },
+        "SwiftTrans": {
+          "shipments": 3703,
+          "late_pct": 28.7,
+          "median_cost_per_km": 0.577,
+          "mean_days": 3.73,
+          "mean_rating": 4.61
+        },
+        "Unknown": {
+          "shipments": 355,
+          "late_pct": 26.2,
+          "median_cost_per_km": 0.577,
+          "mean_days": 3.74,
+          "mean_rating": 4.63
+        }
+      },
+      "chi2_p_value": 7.98062158518396e-16
+    },
+    "zone": {
+      "Central": {
+        "shipments": 1182,
+        "late_pct": 23.1,
+        "mean_days": 3.24,
+        "median_cost_per_km": 0.568
+      },
+      "East": {
+        "shipments": 1612,
+        "late_pct": 26.1,
+        "mean_days": 4.19,
+        "median_cost_per_km": 0.564
+      },
+      "North": {
+        "shipments": 2707,
+        "late_pct": 26.6,
+        "mean_days": 3.56,
+        "median_cost_per_km": 0.577
+      },
+      "North-East": {
+        "shipments": 1427,
+        "late_pct": 46.5,
+        "mean_days": 5.78,
+        "median_cost_per_km": 0.56
+      },
+      "South": {
+        "shipments": 3424,
+        "late_pct": 25.8,
+        "mean_days": 3.27,
+        "median_cost_per_km": 0.577
+      },
+      "West": {
+        "shipments": 1528,
+        "late_pct": 33.9,
+        "mean_days": 3.02,
+        "median_cost_per_km": 0.579
+      }
+    },
+    "north_east": {
+      "ne_late_pct": 46.5,
+      "rest_late_pct": 26.9,
+      "ne_share_of_shipments_pct": 12.0,
+      "ne_share_of_late_pct": 19.1
+    },
+    "mode": {
+      "Economy": {
+        "shipments": 3584,
+        "median_cost_per_km": 0.434,
+        "mean_days": 4.64,
+        "late_pct": 32.1,
+        "mean_cost_inr": 494.8
+      },
+      "Express": {
+        "shipments": 2371,
+        "median_cost_per_km": 0.908,
+        "mean_days": 2.71,
+        "late_pct": 30.8,
+        "mean_cost_inr": 1073.6
+      },
+      "Standard": {
+        "shipments": 5925,
+        "median_cost_per_km": 0.587,
+        "mean_days": 3.58,
+        "late_pct": 27.0,
+        "mean_cost_inr": 684.2
+      }
+    },
+    "mode_kruskal_p": 0.0,
+    "cost_distance": {
+      "spearman_rho": 0.873,
+      "short_haul_cpk": 0.641,
+      "long_haul_cpk": 0.543
+    },
+    "worst_lanes": [
+      {
+        "lane": "Delhi -> Guwahati",
+        "late_pct": 54.1,
+        "shipments": 344
+      },
+      {
+        "lane": "Mumbai -> Guwahati",
+        "late_pct": 46.9,
+        "shipments": 226
+      },
+      {
+        "lane": "Kolkata -> Guwahati",
+        "late_pct": 45.5,
+        "shipments": 363
+      },
+      {
+        "lane": "Pune -> Guwahati",
+        "late_pct": 42.4,
+        "shipments": 335
+      },
+      {
+        "lane": "Bengaluru -> Guwahati",
+        "late_pct": 40.9,
+        "shipments": 159
+      }
+    ],
+    "best_lanes": [
+      {
+        "lane": "Kolkata -> Lucknow",
+        "late_pct": 14.1,
+        "shipments": 156
+      },
+      {
+        "lane": "Bengaluru -> Nagpur",
+        "late_pct": 14.4,
+        "shipments": 195
+      },
+      {
+        "lane": "Mumbai -> Jaipur",
+        "late_pct": 15.6,
+        "shipments": 263
+      }
+    ],
+    "warehouse": {
+      "Bengaluru": {
+        "shipments": 2020,
+        "late_pct": 29.5,
+        "mean_days": 3.73,
+        "median_cost_per_km": 0.582
+      },
+      "Delhi": {
+        "shipments": 2467,
+        "late_pct": 32.8,
+        "mean_days": 3.63,
+        "median_cost_per_km": 0.584
+      },
+      "Kolkata": {
+        "shipments": 1315,
+        "late_pct": 29.0,
+        "mean_days": 3.45,
+        "median_cost_per_km": 0.579
+      },
+      "Mumbai": {
+        "shipments": 2468,
+        "late_pct": 29.4,
+        "mean_days": 3.9,
+        "median_cost_per_km": 0.563
+      },
+      "Pune": {
+        "shipments": 3610,
+        "late_pct": 26.8,
+        "mean_days": 3.77,
+        "median_cost_per_km": 0.565
+      }
+    },
+    "weather_traffic": {
+      "Weather severity": [
+        23.5,
+        27.7,
+        29.8,
+        36.1
+      ],
+      "Traffic congestion": [
+        21.0,
+        27.6,
+        31.2,
+        37.4
+      ]
+    },
+    "weather_traffic_rho": {
+      "weather": [
+        0.106,
+        3.6573962481678128e-31
+      ],
+      "traffic": [
+        0.143,
+        1.4809285947804974e-55
+      ]
+    },
+    "rating_by_delay": {
+      "On time": {
+        "mean_rating": 4.68,
+        "n": 8095
+      },
+      "0-1 d late": {
+        "mean_rating": 4.52,
+        "n": 2888
+      },
+      "1-2 d late": {
+        "mean_rating": 4.04,
+        "n": 392
+      },
+      "2+ d late": {
+        "mean_rating": 2.7,
+        "n": 91
+      }
+    }
+  }
+}

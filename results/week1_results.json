@@ -1,0 +1,294 @@
+{
+  "overall": {
+    "shipments": 10461,
+    "on_time_rate_pct": 70.4,
+    "avg_lead_time_days": 3.73,
+    "avg_delay_days_when_late": 0.58,
+    "median_cost_per_km_inr": 0.573,
+    "median_cost_per_kg_inr": 127.54,
+    "avg_customer_rating": 4.6
+  },
+  "by_zone": {
+    "Central": {
+      "shipments": 1044,
+      "on_time_rate_pct": 75.8,
+      "avg_lead_time_days": 3.25,
+      "avg_delay_days_when_late": 0.57,
+      "median_cost_per_km_inr": 0.569,
+      "median_cost_per_kg_inr": 125.52,
+      "avg_customer_rating": 4.61
+    },
+    "East": {
+      "shipments": 1433,
+      "on_time_rate_pct": 73.7,
+      "avg_lead_time_days": 4.18,
+      "avg_delay_days_when_late": 0.57,
+      "median_cost_per_km_inr": 0.567,
+      "median_cost_per_kg_inr": 160.66,
+      "avg_customer_rating": 4.61
+    },
+    "North": {
+      "shipments": 2382,
+      "on_time_rate_pct": 73.2,
+      "avg_lead_time_days": 3.54,
+      "avg_delay_days_when_late": 0.52,
+      "median_cost_per_km_inr": 0.58,
+      "median_cost_per_kg_inr": 118.23,
+      "avg_customer_rating": 4.61
+    },
+    "North-East": {
+      "shipments": 1249,
+      "on_time_rate_pct": 53.2,
+      "avg_lead_time_days": 5.77,
+      "avg_delay_days_when_late": 0.76,
+      "median_cost_per_km_inr": 0.561,
+      "median_cost_per_kg_inr": 210.65,
+      "avg_customer_rating": 4.49
+    },
+    "South": {
+      "shipments": 3005,
+      "on_time_rate_pct": 74.0,
+      "avg_lead_time_days": 3.28,
+      "avg_delay_days_when_late": 0.57,
+      "median_cost_per_km_inr": 0.573,
+      "median_cost_per_kg_inr": 113.02,
+      "avg_customer_rating": 4.62
+    },
+    "West": {
+      "shipments": 1348,
+      "on_time_rate_pct": 65.7,
+      "avg_lead_time_days": 3.02,
+      "avg_delay_days_when_late": 0.5,
+      "median_cost_per_km_inr": 0.579,
+      "median_cost_per_kg_inr": 99.01,
+      "avg_customer_rating": 4.6
+    }
+  },
+  "by_carrier": {
+    "BlueDart Lite": {
+      "shipments": 2881,
+      "on_time_rate_pct": 74.8,
+      "avg_lead_time_days": 3.65,
+      "avg_delay_days_when_late": 0.52,
+      "median_cost_per_km_inr": 0.644,
+      "median_cost_per_kg_inr": 148.75,
+      "avg_customer_rating": 4.61
+    },
+    "CityLink": {
+      "shipments": 1935,
+      "on_time_rate_pct": 70.1,
+      "avg_lead_time_days": 3.81,
+      "avg_delay_days_when_late": 0.57,
+      "median_cost_per_km_inr": 0.537,
+      "median_cost_per_kg_inr": 123.03,
+      "avg_customer_rating": 4.6
+    },
+    "RoadRunner": {
+      "shipments": 2305,
+      "on_time_rate_pct": 63.9,
+      "avg_lead_time_days": 3.75,
+      "avg_delay_days_when_late": 0.65,
+      "median_cost_per_km_inr": 0.511,
+      "median_cost_per_kg_inr": 111.72,
+      "avg_customer_rating": 4.57
+    },
+    "SwiftTrans": {
+      "shipments": 3340,
+      "on_time_rate_pct": 71.3,
+      "avg_lead_time_days": 3.73,
+      "avg_delay_days_when_late": 0.59,
+      "median_cost_per_km_inr": 0.577,
+      "median_cost_per_kg_inr": 126.61,
+      "avg_customer_rating": 4.61
+    }
+  },
+  "by_warehouse": {
+    "Bengaluru": {
+      "shipments": 1784,
+      "on_time_rate_pct": 70.0,
+      "avg_lead_time_days": 3.74,
+      "avg_delay_days_when_late": 0.56,
+      "median_cost_per_km_inr": 0.583,
+      "median_cost_per_kg_inr": 120.53,
+      "avg_customer_rating": 4.61
+    },
+    "Delhi": {
+      "shipments": 2185,
+      "on_time_rate_pct": 66.5,
+      "avg_lead_time_days": 3.63,
+      "avg_delay_days_when_late": 0.61,
+      "median_cost_per_km_inr": 0.586,
+      "median_cost_per_kg_inr": 117.58,
+      "avg_customer_rating": 4.57
+    },
+    "Kolkata": {
+      "shipments": 1170,
+      "on_time_rate_pct": 70.7,
+      "avg_lead_time_days": 3.45,
+      "avg_delay_days_when_late": 0.63,
+      "median_cost_per_km_inr": 0.577,
+      "median_cost_per_kg_inr": 124.45,
+      "avg_customer_rating": 4.57
+    },
+    "Mumbai": {
+      "shipments": 2156,
+      "on_time_rate_pct": 70.3,
+      "avg_lead_time_days": 3.89,
+      "avg_delay_days_when_late": 0.55,
+      "median_cost_per_km_inr": 0.563,
+      "median_cost_per_kg_inr": 144.31,
+      "avg_customer_rating": 4.61
+    },
+    "Pune": {
+      "shipments": 3166,
+      "on_time_rate_pct": 73.3,
+      "avg_lead_time_days": 3.77,
+      "avg_delay_days_when_late": 0.59,
+      "median_cost_per_km_inr": 0.565,
+      "median_cost_per_kg_inr": 127.17,
+      "avg_customer_rating": 4.61
+    }
+  },
+  "by_mode": {
+    "Economy": {
+      "shipments": 3160,
+      "on_time_rate_pct": 67.3,
+      "avg_lead_time_days": 4.63,
+      "avg_delay_days_when_late": 0.59,
+      "median_cost_per_km_inr": 0.434,
+      "median_cost_per_kg_inr": 92.66,
+      "avg_customer_rating": 4.58
+    },
+    "Express": {
+      "shipments": 2087,
+      "on_time_rate_pct": 69.2,
+      "avg_lead_time_days": 2.71,
+      "avg_delay_days_when_late": 0.59,
+      "median_cost_per_km_inr": 0.914,
+      "median_cost_per_kg_inr": 200.77,
+      "avg_customer_rating": 4.59
+    },
+    "Standard": {
+      "shipments": 5214,
+      "on_time_rate_pct": 72.7,
+      "avg_lead_time_days": 3.58,
+      "avg_delay_days_when_late": 0.58,
+      "median_cost_per_km_inr": 0.587,
+      "median_cost_per_kg_inr": 132.45,
+      "avg_customer_rating": 4.61
+    }
+  },
+  "n_pilot_rows": 10461,
+  "n_lanes": 40,
+  "silhouette": {
+    "2": 0.37212275430466757,
+    "3": 0.36900390790799964,
+    "4": 0.2741456739234034,
+    "5": 0.27058800243644093,
+    "6": 0.2849641348100262,
+    "7": 0.286054292144099
+  },
+  "best_k": 3,
+  "cluster_table": [
+    {
+      "cluster": 0,
+      "segment": "long-haul, high-delay, low-cost/km",
+      "lanes": 5,
+      "shipments": 1064,
+      "avg_distance_km": 2444.0,
+      "delay_rate_pct": 43.5,
+      "cost_per_km_inr": 0.541,
+      "lead_time_days": 6.76,
+      "example_lanes": "Delhi -> Guwahati, Pune -> Guwahati, Mumbai -> Guwahati"
+    },
+    {
+      "cluster": 1,
+      "segment": "mid-range / balanced",
+      "lanes": 22,
+      "shipments": 4469,
+      "avg_distance_km": 1539.0,
+      "delay_rate_pct": 24.8,
+      "cost_per_km_inr": 0.55,
+      "lead_time_days": 4.47,
+      "example_lanes": "Pune -> Chennai, Pune -> Bhubaneswar, Pune -> Jaipur"
+    },
+    {
+      "cluster": 2,
+      "segment": "short-haul, high-cost/km, high-volume",
+      "lanes": 13,
+      "shipments": 4928,
+      "avg_distance_km": 650.0,
+      "delay_rate_pct": 31.1,
+      "cost_per_km_inr": 0.596,
+      "lead_time_days": 2.56,
+      "example_lanes": "Pune -> Hyderabad, Pune -> Ahmedabad, Bengaluru -> Chennai"
+    }
+  ],
+  "inventory": [
+    {
+      "warehouse": "Bengaluru",
+      "mean_daily_units": 4.9,
+      "sd_daily_units": 2.4,
+      "annual_units": 1803,
+      "unit_cost_inr": 5804.0,
+      "EOQ_units": 106,
+      "safety_stock_units": 13,
+      "reorder_point_units": 38
+    },
+    {
+      "warehouse": "Delhi",
+      "mean_daily_units": 6.0,
+      "sd_daily_units": 2.8,
+      "annual_units": 2191,
+      "unit_cost_inr": 5492.0,
+      "EOQ_units": 120,
+      "safety_stock_units": 16,
+      "reorder_point_units": 46
+    },
+    {
+      "warehouse": "Kolkata",
+      "mean_daily_units": 3.4,
+      "sd_daily_units": 1.8,
+      "annual_units": 1237,
+      "unit_cost_inr": 6004.0,
+      "EOQ_units": 87,
+      "safety_stock_units": 9,
+      "reorder_point_units": 26
+    },
+    {
+      "warehouse": "Mumbai",
+      "mean_daily_units": 5.9,
+      "sd_daily_units": 2.8,
+      "annual_units": 2161,
+      "unit_cost_inr": 5580.0,
+      "EOQ_units": 119,
+      "safety_stock_units": 16,
+      "reorder_point_units": 45
+    },
+    {
+      "warehouse": "Pune",
+      "mean_daily_units": 8.7,
+      "sd_daily_units": 3.5,
+      "annual_units": 3166,
+      "unit_cost_inr": 6118.0,
+      "EOQ_units": 137,
+      "safety_stock_units": 21,
+      "reorder_point_units": 65
+    }
+  ],
+  "regression": {
+    "slope_per_km": 0.563158694178164,
+    "intercept": 43.35492763387822,
+    "r2_simple": 0.6675482142779545,
+    "r2_multi": 0.6702644965190847,
+    "r2_untrimmed": 0.06742212213549638,
+    "cost_cap_inr": 3194.938599999998
+  },
+  "eoq_params": {
+    "order_cost_inr": 4000.0,
+    "holding_rate": 0.22,
+    "lead_time_days": 5.0,
+    "lead_time_sd": 1.2,
+    "z": 1.645
+  }
+}
